@@ -1,37 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="6dp">
 
-    <EditText
-        android:id="@+id/item_input"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:background="#1D0E60"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/common_google_signin_btn_text_light_normal"
+            app:buttonSize="wide" />
+
+        <Button
+            android:id="@+id/show_previous_list_button"
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:layout_marginLeft="8dp"
+            android:backgroundTint="#00FFFFFF"
+            android:includeFontPadding="true"
+            android:paddingStart="10dp"
+            android:paddingTop="-10dp"
+            android:text="Previous"
+            android:textColor="#FFFDFD"
+            android:textColorHint="#FAF6F6"
+            android:textColorLink="#FCF6DBDB"
+            android:textSize="13dp"
+            app:icon="@android:drawable/ic_menu_recent_history"
+            app:iconGravity="textTop"
+            app:iconPadding="-5dp"
+            app:iconSize="40dp"
+            app:iconTint="#F6F2F2" />
+
+        <Button
+            android:id="@+id/save_list_button"
+            android:layout_width="78dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="#00FFFFFF"
+            android:text="Save"
+            android:textColor="#F8F7F7"
+            android:textSize="13dp"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconGravity="textTop"
+            app:iconPadding="-5dp"
+            app:iconSize="38dp"
+            app:iconTint="#F8F5F5" />
+
+        <Button
+            android:id="@+id/btn_fetch_recommendations"
+            android:layout_width="125dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#00FFFFFF"
+            android:text="Recommend"
+            android:textColor="#F1EDED"
+            android:textSize="13dp"
+            app:icon="@android:drawable/ic_input_get"
+            app:iconGravity="textTop"
+            app:iconPadding="-4dp"
+            app:iconSize="35dp"
+            app:iconTint="#FAF7F7" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add item to list" />
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add" />
+        <EditText
+            android:id="@+id/item_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Add item to list" />
+
+        <ImageButton
+            android:id="@+id/voiceInputButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:backgroundTint="#0CCFB9B9"
+            android:contentDescription="Voice Input"
+            android:foregroundTint="#FFFFFF"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            app:icon="@android:drawable/ic_menu_add" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/shopping_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="100dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recommendations:" />
+        android:text="@string/recommendations" />
 
-    <ListView
-        android:id="@+id/recommendations_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recommendations_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/item_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_recommendation" />
 </LinearLayout>

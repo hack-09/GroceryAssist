@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SmartGroceryAssistant</string>
+    <string name="default_web_client_id" />
+    <string name="previous_list">Previous List</string>
+    <string name="save_list">Save List</string>
+    <string name="recommendations">Recommendations:</string>
+    <string name="add">Add</string>
 </resources>

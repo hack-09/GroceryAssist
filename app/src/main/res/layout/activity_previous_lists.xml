@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F82121"
+    android:backgroundTint="#4F1B8E"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="clip_horizontal"
+        android:padding="6dp"
+        android:text="Previous List"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <ListView
+        android:id="@+id/previous_lists_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:backgroundTint="#26084A"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="10dp" />
+
+</LinearLayout>
